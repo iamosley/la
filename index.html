@@ -19,7 +19,7 @@
  </div>
 </div>
  </div>
- <div markdown="1">
+<span style="display:block" class="note">
  ## Combine Multiprocessing Outputs Into a Single DataFrame
 Multiprocessing shortened processing from ~20 hours to ~5 hours. However, multiple data frames need to be recombined and then geometrically exploded to provide similar output to the original serial approach.
 
@@ -149,6 +149,6 @@ len(all_dissolves_gdf)
 pickled(all_dissolves_gdf, r'.\02_Dissolve\single_member_dissolve.zip')
 ```
 
- </div>
+ </span>
 </body>
 </html>
