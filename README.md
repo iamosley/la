@@ -33,3 +33,4 @@ Well, I used an *unsual* calculation for density. This is simply not the DA's la
 Let's have a look at DA 35202296 and its two LA polygons representing Portuguese and Spanish (examining the LA for English isn't so helpful since it covers most of sourthern Ontario!).
 
 #### Figure 1.
+![alt text](https://iamosley.github.io/la/img/da_la_overlap.png "Figure 1.")
