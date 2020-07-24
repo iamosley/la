@@ -2,7 +2,7 @@
 
 ### Repo for code investigating the dominant non-official languages in Canada.
 
-Language distribution using choropleth maps can be difficult. Within any specific geography many languages exist and are typcially overshadowed by English and French. This methodology demonstrates a way to reliably identify principal "language areas" and which ones are the most dense (population per km<sup>2</sup> in a neighbourhood (for this application, Dissemination Areas).
+Language distribution using choropleth maps can be difficult. Within any specific geography many languages exist and are typcially overshadowed by English and French. This methodology demonstrates a way to reliably identify principal "language areas" and which ones are the most dense (population per km<sup>2</sup> in a neighbourhood).
 
 ## An Example
 
@@ -19,7 +19,7 @@ All analysis for this project was done at the [Dissemination Area (DA)](https://
 When creating a choropleth map, English would typically be the identified language for this DA since it has an overwhelming 71.08% representation. This is not surprising. But what I wanted to achieve is a way to identify other languages that were significant but not well represented by a simple percentage calculation. Thinking (a lot) about this, I used a measure of population density per square kilometre to see how the language would 'rank'.
 
 #### Table 2.
-| Language   | Language Density per km<sup>2</sup> |
+| Language   | Population per km<sup>2</sup> |
 |------------|-------:|
 | English    |   3.98 |
 | Italian    |  39.25 |
@@ -35,7 +35,7 @@ Let's have a look at DA 35202296 and its two LA polygons representing Portuguese
 #### Figure 1.
 ![alt text](https://iamosley.github.io/la/img/da_la_overlap.png "Figure 1.")
 
-Th red outline is DA 35202296, and the '///' hatched areas are Portuguese speaking areas, and '\\\' hatched areas are Spanish. Many of the areas are both including the DA in question. Given that Portuguese has the highest density, this DA would be hatched '///' in a single-value map.
+The red outline is DA 35202296, and the '///' hatched areas are Portuguese speaking areas, and '\\\\\\' hatched areas are Spanish. Many of the areas are both, including the DA in question. Given that Portuguese has the highest density, this DA would be hatched '///' in a single-value map.
 
 Here is the map re-presented with dominant language based on LA density: green showing Portuguese and blue for Spanish. (Uncoloured areas have been assigned a language other than Portuguese or Spanish in the complete analysis.)
 
