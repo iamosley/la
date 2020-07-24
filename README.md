@@ -6,7 +6,7 @@ Language distribution using choropleth maps can be difficult. Within any specifi
 
 ## An Example
 
-All analysis for this project was done at the [Dissemination Area (DA)]: https://www150.statcan.gc.ca/n1/pub/92-195-x/2011001/geo/da-ad/da-ad-eng.htm level. In downtown Toronto, DA '35202296' has a combination of English, Italian, Portuguese and Spanish speakers. Let's look at this DA's language profile:
+All analysis for this project was done at the [Dissemination Area (DA)](https://www150.statcan.gc.ca/n1/pub/92-195-x/2011001/geo/da-ad/da-ad-eng.htm) level. In downtown Toronto, DA '35202296' has a combination of English, Italian, Portuguese and Spanish speakers. Let's look at this DA's language profile:
 
 #### Table 1.
 | Language   | Count | % of Total |
@@ -26,9 +26,10 @@ When creating a choropleth map, English would typically be the identified langua
 | Portuguese | 143.11 |
 | Spanish    |  73.97 |
 
-**Interesting**. English is now the lowest ranked with a population density of 3.98 persons per square km. How can this be?
+**Interesting**. English is now the lowest ranked with a population density of 3.98 persons per km<sup>2</sup>. How can this be?
 
-Well, I used an *unsual* calculation for density. This is simply not the DA's language count divided by the area of the DA, but, the total count of all adjoining DAs that have a non-zero language count divided the sum of their areas. These contiguous polygons of language I call **language areas** (LA). 
+Well, I used an *unsual* calculation for density. This is simply not the DA's language count divided by the area of the DA, but, the total count of all adjoining DAs that have a non-zero language count divided the sum of their areas. These contiguous polygons of language I call **Language Areas** (LA). 
 
 Let's have a look at DA 35202296 and its two LA polygons representing Portuguese and Spanish (examining the LA for English isn't so helpful since it covers most of sourthern Ontario!).
 
+#### Figure 1.
