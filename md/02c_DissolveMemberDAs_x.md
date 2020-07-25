@@ -1,5 +1,5 @@
 ## Calculate DA Membership for each LA
-Principal computation is determining which DAs belong to each individual LA. The spatial operation 'within' was onerous and the calculations were split across multiple sessions. Only one seesion is presented here for clarity. 
+Principal computation is determining which DAs belong to each individual LA. The spatial operation 'within' was onerous and the calculations were split across multiple sessions. Only one session is presented here for clarity. 
 
 
 ```python
@@ -50,7 +50,7 @@ bad_cases = [(382, 211), (384, 457), (382, 219)]
 
 
 ```python
-# create a R-tree spatial index for the DA boundaries
+# create an R-tree spatial index for the DA boundaries
 da_sindex = da_single_max.sindex
 ```
 

@@ -103,7 +103,7 @@ print(f'Total LA-DA combinations (total i): {len(la_das)}')
 Using the LA area is not valid since is a spatial union of buffered DA polygons. Also, the 'total' for each LA is an artifact of the original member_id, before it was exploded into single polygons.
 ### Important to understand the composition of the LA-DA list.
 - An LA is a language ID (member_id) along with a specific LA. Each language can have mutiple LAs. In this case 27,222. 
-- e.g. (384, 23): 'English', languare are '23'
+- e.g. (384, 23): 'English', language area '23'
 - The DA list comprises of the DA's row index: the internal DA id and its 'exploded' id from step 1. (the latter id is of no use, but included since I didn't want to rebuild the row index key). 
 - e.g. [(8995, 0), ...]) DA internal id '8995' and exploded polygon id of '0'.
 

@@ -1,14 +1,11 @@
-# Discovering Dominant Language Areas (LA) by Neighbourhood
-### Which Single Response Languages from the 2016 Census have the highest population density by LA per Dissemination Area (aka neighbourhood) 
-
 ## ETL for Demographic and Geographic data from StatCan
-Since the base profile data from StatCan is large (~14GB) and I only need a small portion of that.
+Since the base profile data from StatCan is large (~14GB) and I only need a small portion of that, some ETL is required for efficient processing. The ETL also considers the detailed metadata that StatsCan uses for statistical significance and suppression.
 
-### Sources
+### Sources:
 Statistics Canada. No date. Census Profile - Age, Sex, Type of Dwelling, Families, Households, Marital Status, Language, Income, Immigration and Ethnocultural Diversity, Housing, Aboriginal Peoples, Education, Labour, Journey to Work, Mobility and Migration, and Language of Work for Canada, Provinces and Territories, Census Divisions, Census Subdivisions and Dissemination Areas, 2016 Census (Database). Release Date November 29, 2017
 https://www150.statcan.gc.ca/n1/en/catalogue/98-401-X2016044
 
-Statistics Canada. No date. 2016 Census - Boundary files, English, ArcGis&reg;, Dissemination areas (Cartographic Boundary File)
+Statistics Canada. No date. 2016 Census - Boundary files, English, ArcGis&reg;, Dissemination areas (Cartographic Boundary File).
 https://www12.statcan.gc.ca/census-recensement/alternative_alternatif.cfm?l=eng&dispext=zip&teng=lda_000b16a_e.zip&k=%20%20%20%2090414&loc=http://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/files-fichiers/2016/lda_000b16a_e.zip
 
 
@@ -49,7 +46,7 @@ COLUMNS = {
 }
 
 # create a dict for the required census datum (member_id in StatCan terminology)
-# just so I remeber how I did this (from my SQL Server version of the data)
+# just so I remember how I did this (from my SQL Server version of the data)
 sql = '''
 SELECT
     cast([Member_ID] as varchar(6)) + ': "'
@@ -349,7 +346,6 @@ with open(raw_input, 'r') as f:
 
 ```python
 print(f'Total records written: {i}')
-# 11997080
 ```
 
     Total records written: 11997080
@@ -484,7 +480,7 @@ da_gdf.head()
 
 
 ### Select the largest polygon in a multipolygon
-Later processing will use the spatial operator 'within' which proved challenging for multipolygons
+Later processing will use the spatial operator 'within' which proved challenging for multipolygons, so extracting the largest polygon within those multipolgons for analysis.
 
 
 ```python
@@ -550,6 +546,7 @@ da_df_for_buffer['geometry'] = da_df_for_buffer['geometry'].buffer(1, resolution
 ```python
 pickled(da_df_for_buffer, r'.\01_Load\da_df_for_buffer.zip')
 ```
+## Dissolve polygons (spatial union) by their language ID (aka member_id)
 
 ### Use multiprocessing to save time
 Worked well for smaller LAs, but blocked for the two largest LAs: English and French
@@ -570,29 +567,4 @@ candidate_member_ids = list(DATUM)[1:] # don't want to dissolve the "single resp
 
 with Pool(4) as p:
     dissolves = p.map(dissolve_single, candidate_member_ids)
-```
-
-
-```python
-# dissolve the polygons (union) by their language ID (aka member_id)
-member_dissolve = da_df_for_buffer.dissolve(by='member_id', aggfunc='sum')
-member_dissolve.info()
-```
-
-
-```python
-# pickle these important data!
-pickled(member_dissolve, r'.\02_Dissolve\member_dissolve.zip')
-```
-
-
-```python
-# dissolving will have created multipolygons which need to be broken down into single polygons per record
-# each single polygon is a single, cohesive, "language bubble"
-single_member_dissolve = member_dissolve.explode()
-```
-
-
-```python
-pickled(single_member_dissolve, r'.\02_Dissolve\single_member_dissolve.zip')
 ```

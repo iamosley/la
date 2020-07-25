@@ -1,8 +1,8 @@
-## Language Area Research
+## Discovering Dominant Language Areas (LA) by Neighbourhood
 
-### Repo for code investigating the dominant non-official languages in Canada.
+### Which Single Response Languages from the 2016 Census have the highest population density by LA per Dissemination Area (aka neighbourhood) 
 
-Language distribution using choropleth maps can be difficult. Within any specific geography many languages exist and are typcially overshadowed by English and French. This methodology demonstrates a way to reliably identify principal "language areas" and which ones are the most dense (population per km<sup>2</sup> in a neighbourhood).
+Language distribution using choropleth maps can be difficult. Within any specific geography many languages exist and are typically overshadowed by English and French. This methodology demonstrates a way to reliably identify principal "language areas" and which ones are the most dense (population per km<sup>2</sup> in a neighbourhood).
 
 ## An Example
 
@@ -28,7 +28,7 @@ When creating a choropleth map, English would typically be the identified langua
 
 **Interesting**. English is now the lowest ranked with a population density of 3.98 persons per km<sup>2</sup>. How can this be?
 
-Well, I used an *unsual* calculation for density. This is not simply the DA's language counts divided by the area of the DA, but, the total count of all adjoining DAs that have a non-zero count &mddash; for that specific language &mdash; divided the sum of their areas. These contiguous polygons of language I call **Language Areas** (LA). 
+Well, I used an *unusual* calculation for density. This is not simply the DA's language counts divided by the area of the DA, but, the total count of all adjoining DAs that have a non-zero count &mdash; for that specific language &mdash; divided by the sum of their areas. These contiguous polygons of language I call **Language Areas** (LA). 
 
 Let's have a look at DA 35202296 and its two LA polygons representing Portuguese and Spanish.
 
