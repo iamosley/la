@@ -41,12 +41,6 @@ display(la_da_lookup[:10])
     rank           369028 non-null int16
     dtypes: Int16(2), float32(1), int16(1), object(1), uint16(2)
     memory usage: 11.3+ MB
-    
-
-
-    None
-
-
 
 <div>
 <style scoped>
@@ -245,6 +239,7 @@ la_da_index[:10]
 
 
 ```python
+# convert the list into a dataframe
 la_da = pd.DataFrame(la_da_index, columns=['member_id', 'la_area', 'da'])
 la_da.head()
 ```
@@ -511,7 +506,7 @@ la_density_da.sort_values('da').head()
 
 
 ## Rank LA language densities for each DA
-LA with the highest density for a specific DA is the most representative.  This 'flattens' the LA overlapping areas into a single language id (member_id) for each DA neighbourhood. This achieves the desired result of creating a spatial assignment of single response languages that are not defined my the maximum percentage for each DA, but a competitive spatial maximum based on density.
+LA with the highest density for a specific DA is the most representative.  This 'flattens' the LA overlapping areas into a single language id (member_id) for each DA neighbourhood. This achieves the desired result of creating a spatial assignment of single response languages that are not defined by the maximum percentage for each DA, but a competitive spatial maximum based on density.
 
 
 ```python
@@ -608,11 +603,11 @@ la_density_da_rank.head()
 
 
 
+## Select top ranked LA (language area) for the DA (dissemination area)
 ```python
 la_density_da_rank_1 = la_density_da_rank.loc[la_density_da_rank['rank']==1, ['member_id', 'la_area', 'density_km2', 'da']]
 ```
 
-## Select top ranked LA (language area) for the DA (dissemination area)
 Total count is 54,999
 
 
