@@ -16,7 +16,7 @@ All analysis for this project was done at the [Dissemination Area (DA)](https://
 | Portuguese |    35 |       8.43 |
 | Spanish    |    25 |       6.03 |
 
-When creating a choropleth map, English would typically be the identified language for this DA since it has an overwhelming 71.08% representation. This is not surprising. But what I wanted to achieve is a way to identify other languages that were significant but not well represented by a simple percentage calculation. Thinking (a lot) about this, I used a measure of population density per square kilometre to see how the language would 'rank'.
+When creating a choropleth map, English would typically be the identified language for this DA since it has an overwhelming 71.08% representation. This is not surprising. But what I wanted to achieve is a way to identify other languages that were significant but not well represented by a simple percentage calculation. Thinking (a lot) about this, I used a measure of population density per square kilometre to see how a language would 'rank'.
 
 #### Table 2.
 | Language   | Population per km<sup>2</sup> |
@@ -28,9 +28,9 @@ When creating a choropleth map, English would typically be the identified langua
 
 **Interesting**. English is now the lowest ranked with a population density of 3.98 persons per km<sup>2</sup>. How can this be?
 
-Well, I used an *unsual* calculation for density. This is simply not the DA's language count divided by the area of the DA, but, the total count of all adjoining DAs that have a non-zero language count divided the sum of their areas. These contiguous polygons of language I call **Language Areas** (LA). 
+Well, I used an *unsual* calculation for density. This is not simply the DA's language counts divided by the area of the DA, but, the total count of all adjoining DAs that have a non-zero count &mddash; for that specific language &mdash; divided the sum of their areas. These contiguous polygons of language I call **Language Areas** (LA). 
 
-Let's have a look at DA 35202296 and its two LA polygons representing Portuguese and Spanish (examining the LA for English isn't so helpful since it covers most of sourthern Ontario!).
+Let's have a look at DA 35202296 and its two LA polygons representing Portuguese and Spanish.
 
 #### Figure 1.
 ![alt text](https://iamosley.github.io/la/img/da_la_overlap.png "Figure 1.")
@@ -41,3 +41,5 @@ Here is the map re-presented with dominant language based on LA density: green s
 
 #### Figure 2.
 ![alt text](https://iamosley.github.io/la/img/da_la_overlap_single.png "Figure 2.")
+
+As is seen in **Figure 2**, the target DA is Portuguese confirming the calculations from **Table 2**. Interesting to note that when DAs comprise both Portuguese and Spanish, Portuguese is the more representative from an LA perspective. 
