@@ -4,8 +4,6 @@
 
 Language distribution using choropleth maps can be difficult. Within any specific geography many languages exist and are typically overshadowed by English and French. This methodology demonstrates a way to reliably identify principal "language areas" and which ones are the most dense (population per km<sup>2</sup> in a neighbourhood).
 
-![alt text](https://iamosley.github.io/la/img/TorontoLA.PNG "Toronto Language Areas")
-
 ## An Example
 
 All analysis for this project was done at the [Dissemination Area (DA)](https://www150.statcan.gc.ca/n1/pub/92-195-x/2011001/geo/da-ad/da-ad-eng.htm) level. In downtown Toronto, DA '35202296' has a combination of English, Italian, Portuguese and Spanish speakers. Let's look at this DA's language profile:
